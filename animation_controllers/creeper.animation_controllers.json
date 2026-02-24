@@ -1,0 +1,29 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+                "controller.animation.creeper.target" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"transitions": [
+						{
+							"targeting": "query.has_target"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"targeting" : {
+					"animations" : [ "target" ],
+					"transitions": [
+						{
+							"default": "!query.has_target"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "§b§lOrigin Animations",
+    "description": "The Best free animation pack.",
+    "uuid": "e657fa37-dc3d-7fba-2ac7-0b76f2a3129d",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      17,
+      0
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "018f9cc8-77ac-4a5b-89e0-304ffdb802e1",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {}
+}

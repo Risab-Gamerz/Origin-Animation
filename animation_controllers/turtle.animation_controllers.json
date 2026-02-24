@@ -1,0 +1,97 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {	
+                "controller.animation.turtle.look" : {
+			"initial_state" : "default",
+			"states" : {
+				"righting" : {
+					"animations" : [ "left" ],
+					"transitions": [
+						{
+							"lefting": "query.target_y_rotation > 14.0 && !query.is_on_ground"
+						},
+                                                {
+							"middle": "query.target_y_rotation < 10.0 && query.target_y_rotation > -10.0"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				},
+                                "lefting" : {
+					"animations" : [ "right" ],
+					"transitions": [
+						{
+							"righting": "query.target_y_rotation < -18.0 && !query.is_on_ground"
+						},
+                                                {
+							"middle": "query.target_y_rotation < 10.0 && query.target_y_rotation > -10.0"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				},
+				"middle" : {
+					"animations" : [ "mid" ],
+					"transitions": [
+						{
+							"righting": "query.target_y_rotation < -18.0 && !query.is_on_ground"
+						},
+                                                {
+							"lefting": "query.target_y_rotation > 14.0 && !query.is_on_ground"
+						}
+					],
+					"blend_transition": 0.8,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+                "controller.animation.turtle.target" : {
+			"states" : {
+				"default" : {
+					"transitions": [
+						{
+							"look": "query.has_target"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"look" : {
+					"animations" : [ "looking" ],
+					"transitions": [
+						{
+							"default": "!query.has_target"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+                "controller.animation.turtle.baby" : {
+			"initial_state" : "default",
+			"states" : {
+				"young" : {
+					"animations" : [ "baby" ],
+					"transitions": [
+						{
+							"default": "!query.is_baby"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				},
+                                "default" : {
+					"animations" : [ "mid" ],
+					"transitions": [
+						{
+							"young": "query.is_baby"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

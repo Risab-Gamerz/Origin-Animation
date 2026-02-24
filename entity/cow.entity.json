@@ -1,0 +1,44 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:cow",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "cow" },
+      "textures": {
+        "default": "textures/entity/cow/cow"
+      },
+      "geometry": {
+        "default": "geometry.coww"
+      },
+      "animations": {
+        "setup": "animation.cow.setup",
+        "idle": "animation.cow.idle",
+        "walk": "animation.coww.walk", 
+        "right": "animation.coww.left",
+        "left": "animation.coww.right",
+        "run": "animation.coww.run",
+        "general": "controller.animation.coww.general",
+        "look": "controller.animation.coww.look",
+        "eye": "animation.coww.eyes",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cow.baby_transform"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "general",
+          "look",
+          { "eye": "query.is_alive" },
+          "look_at_target",
+          { "baby_transform": "query.is_baby" }
+        ]
+      },
+      "render_controllers": [ "controller.render.cow" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 1
+      }
+    }
+  }
+}

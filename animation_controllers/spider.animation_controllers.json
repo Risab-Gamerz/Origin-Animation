@@ -1,0 +1,45 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+                
+               "controller.animation.spider.climbing" : {
+			"states" : {
+				"default" : {
+					"transitions": [
+						{
+							"climbing": "query.is_wall_climbing && query.ground_speed > 0.2"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+				"climbing" : {
+					"animations" : [ "side" ],
+					"transitions": [
+						{
+							"default": "!query.is_wall_climbing"
+						},
+                                                {
+							"upside": "query.is_wall_climbing && query.ground_speed < 0.2"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				},
+                                "upside" : {
+					"animations" : [ "down" ],
+					"transitions": [
+                                                {
+							"default": "!query.is_wall_climbing"
+						},
+						{
+							"climbing": "query.is_wall_climbing && query.ground_speed > 0.2"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true
+				}
+			}
+		}
+	}
+}

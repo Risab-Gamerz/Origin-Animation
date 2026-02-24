@@ -1,0 +1,44 @@
+{
+	"format_version" : "1.10.0",
+	"animation_controllers" : {
+		"controller.animation.ghast.move" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "move" ]
+				}
+			}
+		},
+                "controller.animation.ghast.shoot" : {
+			"states" : {
+				"default" : {
+					"transitions": [
+						{
+							"shooting": "query.is_charging"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				},
+				"shooting" : {
+					"animations" : [ "shoot" ],
+					"transitions": [
+						{
+							"default": "!query.is_charging"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true
+				}
+			}
+		},
+		"controller.animation.ghast.scale" : {
+			"initial_state" : "default",
+			"states" : {
+				"default" : {
+					"animations" : [ "scale" ]
+				}
+			}
+		}
+	}
+}
